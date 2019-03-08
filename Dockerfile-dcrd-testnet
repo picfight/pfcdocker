@@ -1,0 +1,16 @@
+#DOCKER_IMAGE_TAG=dcrd-testnet
+#mkdir .dcrd
+#docker run -d --network=host -P -v $(pwd)/.dcrd/:/home/decred/.dcrd/ decred/$DOCKER_IMAGE_TAG
+
+FROM decred/dcrd-mainnet
+
+LABEL description="Decred testnet daemon"
+LABEL version="1.0"
+LABEL maintainer "john@netpurgatory.com"
+
+# PEER PORT
+EXPOSE 19108
+# RPC PORT
+EXPOSE 19109
+
+CMD ./dcrd --testnet

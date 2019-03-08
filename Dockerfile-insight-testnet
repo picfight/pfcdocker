@@ -1,0 +1,14 @@
+#DOCKER_IMAGE_TAG=decred-insight-testnet
+#mkdir -p .insight
+#docker run -d --network=host -P -v $(pwd)/.insight/:/home/insight/.insight/ decred/$DOCKER_IMAGE_TAG
+
+FROM decred/decred-insight
+
+LABEL description="Decred testnet insight"
+LABEL version="1.0"
+LABEL maintainer "john@netpurgatory.com"
+
+EXPOSE 3004
+
+ENV INSIGHT_NETWORK dcrdtestnet
+CMD . ~/.nvm/nvm.sh && npm start
